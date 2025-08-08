@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dienstleistungen – Jobimpactr</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #003366;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #0057A0;
+      color: #ffffff;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #003366;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .service-box {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      background-color: #f9f9f9;
+      transition: all 0.3s ease;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #003366;
+      color: white;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div style="font-size: 1.2rem; font-weight: bold;">Jobimpactr</div>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="wie-funktionierts.html">Wie funktioniert’s?</a>
+      <a href="dienstleistungen.html">Dienstleistungen</a>
+      <a href="#">Sprache</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Unsere Dienstleistungen</h1>
+    <p>Rechtskonform · BG-versichert · Vielfältig</p>
+  </section>
+
+  <section class="service-grid">
+    <div class="service-box">
+      <h3>Reinigung</h3>
+      <p>Private & gewerbliche Reinigungsdienste – flexibel und BG-konform.</p>
+    </div>
+    <div class="service-box">
+      <h3>Montage</h3>
+      <p>Möbel, IKEA-Aufbau, Regale & einfache Handwerksdienste.</p>
+    </div>
+    <div class="service-box">
+      <h3>Haus & Garten</h3>
+      <p>Unterstützung für Gartenarbeit, kleine Reparaturen und mehr.</p>
+    </div>
+    <div class="service-box">
+      <h3>Seniorenhilfe</h3>
+      <p>Begleitung, Einkaufshilfe & mehr – respektvoll & sicher.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Jobimpactr · Impressum · Datenschutz · Sprache wählen
+  </footer>
+
+</body>
+</html>
