@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobimpactr – Dein Job. Dein Impact.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background-color: #ffffff;
+      color: #003366;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      margin-left: 1.8rem;
+      text-decoration: none;
+      color: #003366;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background-color: #f2f7ff;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      color: #0057A0;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+    .cta-button {
+      background-color: #0057A0;
+      color: white;
+      border: none;
+      padding: 1rem 2.2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0,87,160,0.25);
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #003f7a;
+      transform: translateY(-2px);
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background-color: #ffffff;
+    }
+    .feature-box {
+      width: 280px;
+      background: #f8fafd;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+    .feature-box img {
+      width: 50px;
+      height: 50px;
+    }
+    .feature-box h3 {
+      margin-top: 1.2rem;
+      color: #0057A0;
+      font-size: 1.1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #003366;
+      color: white;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 768px) {
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature-box {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="font-size: 1.2rem; font-weight: bold;">Jobimpactr</div>
+    <nav>
+      <a href="#">Wie funktioniert’s?</a>
+      <a href="#">Dienstleistungen</a>
+      <a href="#">Sicherheit</a>
+      <a href="#">Sprache</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Dein Job. Dein Impact.</h1>
+    <p>Die legale Plattform für selbstständige Alltagsdienstleistungen in Deutschland.</p>
+    <button class="cta-button">Jetzt registrieren</button>
+  </section>
+
+  <section class="features">
+    <div class="feature-box">
+      <img src="https://img.icons8.com/ios-filled/50/0057A0/law.png" alt="Rechtskonform" />
+      <h3>Rechtskonform arbeiten</h3>
+    </div>
+    <div class="feature-box">
+      <img src="https://img.icons8.com/ios-filled/50/0057A0/security-shield.png" alt="Versicherung" />
+      <h3>BG-versichert starten</h3>
+    </div>
+    <div class="feature-box">
+      <img src="https://img.icons8.com/ios-filled/50/0057A0/language.png" alt="Mehrsprachigkeit" />
+      <h3>Mehrsprachig & sicher</h3>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Jobimpactr · Impressum · Datenschutz · Sprache wählen
+  </footer>
+</body>
+</html>
