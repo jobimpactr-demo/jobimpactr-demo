@@ -10,38 +10,98 @@
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
+      background-color: #f8f9fb;
       color: #003366;
+    }
+
+    header {
       background-color: #ffffff;
-      max-width: 800px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .hero {
+      background-color: #e9f1fb;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #003366;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .hero button:hover {
+      background-color: #0057b8;
+    }
+
+    .container {
+      max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
     }
-    h1, h2 {
-      color: #003366;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin-top: 2rem;
-    }
-    p {
-      margin-bottom: 1rem;
-    }
-    header {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1rem;
+
+    .box-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
       margin-bottom: 2rem;
     }
+
+    .box {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .box h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: #003366;
+    }
+
+    .box p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
     footer {
-      margin-top: 3rem;
-      border-top: 1px solid #ccc;
-      padding-top: 1rem;
+      text-align: center;
       font-size: 0.9rem;
-      color: #666;
+      color: #888;
+      padding: 2rem;
+      border-top: 1px solid #ddd;
+      margin-top: 3rem;
     }
   </style>
 </head>
@@ -52,35 +112,51 @@
     <p>Dein Job. Dein Impact. – Alltagsarbeit neu gedacht.</p>
   </header>
 
-  <h2>Was ist Jobimpactr?</h2>
-  <p>Jobimpactr ist eine digitale Plattform für einfache, erlaubnisfreie Tätigkeiten im Alltag – z. B. Reinigung, Montage, Hilfe im Haushalt.</p>
+  <section class="hero">
+    <h2>Starte deine Tätigkeit einfach & rechtskonform</h2>
+    <p>Jobimpactr hilft dir beim Einstieg in selbstständige Alltagsarbeiten – klar, fair und verständlich.</p>
+    <button>Jetzt registrieren</button>
+  </section>
 
-  <h2>Für wen ist die Plattform?</h2>
-  <p>Für Menschen mit handwerklichen oder sozialen Fähigkeiten – insbesondere Migrant:innen, Frauen, Rentner:innen und Personen ohne Berufsabschluss.</p>
-
-  <h2>Wie funktioniert es?</h2>
-  <p>Du registrierst dich, erhältst Hinweise zu Anmeldung (z. B. Gewerbe, BG, ELSTER) und kannst dann direkt Angebote erstellen oder Aufträge annehmen.</p>
-
-  <h2>Was ist erlaubt?</h2>
-  <p>Nur Tätigkeiten, die in Deutschland ohne Meisterpflicht und mit Gewerbeanmeldung erlaubt sind. Alle Tätigkeiten werden WZ-konform überprüft.</p>
-
-  <h2>Wie stellen wir Sicherheit her?</h2>
-  <p>Unsere Plattform informiert über steuerliche Pflichten, BG-Unfallversicherung und rechtliche Rahmenbedingungen. Wir vermitteln keine Arbeit – du arbeitest selbstständig.</p>
-
-  <h2>Welche Sprachen sind möglich?</h2>
-  <p>Die Plattform ist in 5 aktiven Sprachen verfügbar (Deutsch, Englisch, Polnisch, Türkisch, Kurdisch). Weitere 11 Sprachen werden bald folgen.</p>
-
-  <h2>Was ist der soziale Impact?</h2>
-  <p>50 % der Einnahmen aus Ausrüstungsverkäufen gehen an gemeinnützige Organisationen. So wird jede Buchung zu einem Beitrag für die Gesellschaft.</p>
-
-  <h2>Was kostet das?</h2>
-  <p>Die Nutzung ist kostenlos. Es fällt lediglich eine kleine Provision pro vermitteltem Auftrag an – transparent und fair.</p>
-
-  <h2>Warum ist das besonders?</h2>
-  <p>Weil wir helfen, rechtssicher zu starten – mit Fokus auf Inklusion, Selbstständigkeit und soziale Wirkung.</p>
+  <main class="container">
+    <div class="box-grid">
+      <div class="box">
+        <h3>Was ist Jobimpactr?</h3>
+        <p>Eine Plattform für einfache, erlaubnisfreie Dienstleistungen im Alltag – z. B. Reinigung, Montage, Hilfe im Haushalt.</p>
+      </div>
+      <div class="box">
+        <h3>Für wen ist das?</h3>
+        <p>Für Migrant:innen, Frauen, Rentner:innen und alle mit praktischen Fähigkeiten ohne formalen Abschluss.</p>
+      </div>
+      <div class="box">
+        <h3>Wie funktioniert’s?</h3>
+        <p>Registrieren → Gewerbe & BG Hinweise erhalten → Aufträge erstellen oder annehmen.</p>
+      </div>
+      <div class="box">
+        <h3>Was ist erlaubt?</h3>
+        <p>Nur Tätigkeiten ohne Meisterpflicht. Alles wird WZ-konform geprüft & transparent dargestellt.</p>
+      </div>
+      <div class="box">
+        <h3>Sicherheit & Recht</h3>
+        <p>Infos zu Steuer, Unfallversicherung (BG) und rechtlichen Grenzen. Keine Vermittlung, sondern digitale Unterstützung.</p>
+      </div>
+      <div class="box">
+        <h3>Mehrsprachigkeit</h3>
+        <p>Aktiv: Deutsch, Englisch, Polnisch, Türkisch, Kurdisch. Weitere 11 Sprachen folgen.</p>
+      </div>
+      <div class="box">
+        <h3>Sozialer Impact</h3>
+        <p>50 % der Einnahmen aus dem Shop gehen an soziale Initiativen – dein Job hilft doppelt.</p>
+      </div>
+      <div class="box">
+        <h3>Kosten & Struktur</h3>
+        <p>Keine Grundgebühr. Faire Provision pro Job. Transparent und steuerlich nachvollziehbar.</p>
+      </div>
+    </div>
+  </main>
 
   <footer>
-    <p>© 2025 Jobimpactr – Plattform in Vorbereitung. Alle Angaben ohne Gewähr. Impressum und Datenschutz folgen bei Live-Betrieb.</p>
+    © 2025 Jobimpactr. Plattform im Aufbau. Angaben ohne Gewähr.
   </footer>
 
 </body>
