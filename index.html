@@ -1,154 +1,140 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jobimpactr – Dein Job. Dein Impact.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f8f9fc;
-      color: #003366;
-    }
-    header, footer {
-      background-color: #ffffff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #003366;
-      font-weight: 600;
-    }
-    .hero {
-      background-color: #e6f0ff;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .btn {
-      background-color: #003366;
-      color: white;
-      padding: 0.8rem 2rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      cursor: pointer;
-    }
-    .section {
-      padding: 4rem 2rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    footer {
-      justify-content: center;
-      font-size: 0.85rem;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobimpactr – Dein Job. Dein Impact.</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: #ffffff;
+        color: #003366;
+        line-height: 1.6;
+      }
+      header, footer {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      nav a {
+        margin: 0 1rem;
+        text-decoration: none;
+        color: #003366;
+        font-weight: 600;
+      }
+      .hero {
+        text-align: center;
+        padding: 4rem 2rem;
+        background-color: #e9f1fb;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      .hero button {
+        padding: 0.8rem 1.5rem;
+        background-color: #003366;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+      section {
+        padding: 3rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+      }
+      h2 {
+        font-size: 1.5rem;
+        color: #003366;
+        margin-top: 3rem;
+      }
+      p {
+        font-size: 1rem;
+        color: #333;
+      }
+      footer {
+        font-size: 0.8rem;
+        justify-content: center;
+        text-align: center;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div><strong>Jobimpactr</strong></div>
+      <nav>
+        <a href="#plattform">Plattform</a>
+        <a href="#nutzer">Zugang</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#berufe">Berufe</a>
+        <a href="#recht">Recht</a>
+        <a href="#sprache">Sprache</a>
+        <a href="#wirkung">Wirkung</a>
+      </nav>
+    </header>
 
-<header>
-  <strong>Jobimpactr</strong>
-  <nav>
-    <a href="#was">Was</a>
-    <a href="#wie">Wie</a>
-    <a href="#jobs">Jobs</a>
-    <a href="#doku">Doku</a>
-    <a href="#frauen">Frauen</a>
-    <a href="#sprachen">Sprachen</a>
-    <a href="#impact">Impact</a>
-  </nav>
-</header>
+    <div class="hero">
+      <h1>Jobimpactr</h1>
+      <p>Dein Job. Dein Impact. – Alltagsarbeit neu gedacht.</p>
+      <button>Jetzt starten</button>
+    </div>
 
-<section class="hero">
-  <h1>Dein Job. Dein Impact.</h1>
-  <p>Alltagsarbeit in Deutschland – verständlich, rechtskonform und mehrsprachig.</p>
-  <button class="btn">Jetzt starten</button>
-</section>
+    <section id="plattform">
+      <h2>Was ist Jobimpactr?</h2>
+      <p>Eine digitale Plattform für erlaubnisfreie Dienstleistungen im Alltag. Einfach, steuerlich abgesichert und rechtlich geprüft.</p>
+    </section>
 
-<section class="section" id="was">
-  <h2>Was ist Jobimpactr?</h2>
-  <p>Jobimpactr ist eine Plattform für einfache, erlaubnisfreie Tätigkeiten – z. B. Reinigung, Montage, Haushaltshilfe. Jede:r kann starten – mit Anleitung, Sicherheit und Transparenz.</p>
-</section>
+    <section id="nutzer">
+      <h2>Wer nutzt die Plattform?</h2>
+      <p>Menschen mit praktischen Fähigkeiten – ohne formalen Abschluss. Offen für alle mit Zugang zum Gewerbe.</p>
+    </section>
 
-<section class="section" id="wie">
-  <h2>Wie funktioniert’s?</h2>
-  <div class="grid">
-    <div class="card"><strong>1. Registrierung</strong><br>Mit E-Mail & PLZ.</div>
-    <div class="card"><strong>2. Dokumenten-Check</strong><br>Gewerbe, BG, ELSTER.</div>
-    <div class="card"><strong>3. Aufträge finden</strong><br>Per Karte oder Umkreis.</div>
-    <div class="card"><strong>4. Arbeiten & verdienen</strong><br>Mit Rechnung & Steuerhilfe.</div>
-  </div>
-</section>
+    <section id="ablauf">
+      <h2>Wie funktioniert es?</h2>
+      <p>Registrierung → Gewerbe & BG Anmeldung → Profil ausfüllen → Aufträge erhalten oder erstellen.</p>
+    </section>
 
-<section class="section" id="jobs">
-  <h2>Zulässige Jobs</h2>
-  <p>Nur Tätigkeiten ohne Meisterpflicht: Reinigung, Möbelaufbau, Hilfe im Haushalt, Schneiderei, Gartenarbeit, IT-Hilfe. Alles geprüft nach WZ-Codes.</p>
-</section>
+    <section id="berufe">
+      <h2>Welche Tätigkeiten sind erlaubt?</h2>
+      <p>Nur WZ-konforme Berufe ohne Meisterpflicht: Reinigung, Montage, Haushalthilfe, u.v.m. Alle Berufe mit Dokumentationspflicht & Hinweis auf nötige Unterlagen.</p>
+    </section>
 
-<section class="section" id="doku">
-  <h2>Dokumente</h2>
-  <div class="grid">
-    <div class="card"><strong>Gewerbe</strong><br>Online beantragen in <a href="https://serviceportal.hamburg.de">Hamburg.de</a></div>
-    <div class="card"><strong>BG-Meldung</strong><br>Pflicht für Selbstständige</div>
-    <div class="card"><strong>ELSTER</strong><br>Steuerkonto aktivieren</div>
-    <div class="card"><strong>Führungszeugnis</strong><br>Online oder im Bürgeramt</div>
-  </div>
-</section>
+    <section id="recht">
+      <h2>Sicherheit & Recht</h2>
+      <p>ELSTER, Steuer-ID, Unfallversicherung (BG), gesetzliche Hinweise – alles wird transparent erklärt.</p>
+    </section>
 
-<section class="section" id="frauen">
-  <h2>Frauen im Fokus</h2>
-  <p>Alle Jobs sind für Frauen geeignet. Mit Filtern, Sicherheit, Aufklärung & Anleitung. Ziel: finanzielle Eigenständigkeit & Selbstvertrauen stärken.</p>
-</section>
+    <section id="sprache">
+      <h2>Mehrsprachigkeit & Zugang</h2>
+      <p>Aktiv: Deutsch, Englisch, Polnisch, Türkisch, Kurdisch. 11 weitere Sprachen folgen. Visuell erklärt, einfach verständlich.</p>
+    </section>
 
-<section class="section" id="sprachen">
-  <h2>Mehrsprachigkeit</h2>
-  <p>Aktive Sprachen: Deutsch, Englisch, Polnisch, Türkisch, Kurdisch. Weitere 11 geplant. Kein Deutsch? Kein Problem – jeder Schritt wird erklärt.</p>
-</section>
+    <section id="wirkung">
+      <h2>Wirkung & Struktur</h2>
+      <p>50% der Einnahmen aus dem Jobimpactr.shop gehen an soziale Organisationen. Keine Grundgebühr, faire Provision pro Auftrag.</p>
+    </section>
 
-<section class="section" id="impact">
-  <h2>Impact & Vision</h2>
-  <p>50 % der Shop-Einnahmen fließen in soziale Projekte. Wir unterstützen Migrant:innen, Frauen & Menschen ohne Berufsabschluss – digital, transparent und menschlich.</p>
-</section>
-
-<footer>
-  © 2025 Jobimpactr. Plattform im Aufbau. Angaben ohne Gewähr.
-</footer>
-
-</body>
+    <footer>
+      &copy; 2025 Jobimpactr. Plattform im Aufbau. Angaben ohne Gewähr.
+    </footer>
+  </body>
 </html>
