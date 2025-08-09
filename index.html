@@ -4,160 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jobimpactr – Dein Job. Dein Impact.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f8f9fb;
+      line-height: 1.6;
+      background-color: #f8f9fc;
       color: #003366;
     }
-
-    header {
+    header, footer {
       background-color: #ffffff;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #003366;
+      font-weight: 600;
     }
-
-    header p {
-      font-size: 1.1rem;
-      color: #444;
-    }
-
     .hero {
-      background-color: #e9f1fb;
+      background-color: #e6f0ff;
       padding: 4rem 2rem;
       text-align: center;
     }
-
-    .hero h2 {
-      font-size: 2rem;
+    .hero h1 {
+      font-size: 2.4rem;
       margin-bottom: 1rem;
-      color: #003366;
     }
-
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-
-    .hero button {
+    .btn {
       background-color: #003366;
       color: white;
-      border: none;
       padding: 0.8rem 2rem;
-      font-size: 1rem;
-      border-radius: 8px;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
-    .hero button:hover {
-      background-color: #0057b8;
-    }
-
-    .container {
-      max-width: 900px;
+    .section {
+      padding: 4rem 2rem;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 2rem;
     }
-
-    .box-grid {
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
-      margin-bottom: 2rem;
     }
-
-    .box {
-      background-color: #ffffff;
-      border-radius: 10px;
+    .card {
+      background-color: white;
       padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-
-    .box h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-      color: #003366;
-    }
-
-    .box p {
-      font-size: 0.95rem;
-      color: #444;
-    }
-
     footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      padding: 2rem;
-      border-top: 1px solid #ddd;
-      margin-top: 3rem;
+      justify-content: center;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Jobimpactr</h1>
-    <p>Dein Job. Dein Impact. – Alltagsarbeit neu gedacht.</p>
-  </header>
+<header>
+  <strong>Jobimpactr</strong>
+  <nav>
+    <a href="#was">Was</a>
+    <a href="#wie">Wie</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#doku">Doku</a>
+    <a href="#frauen">Frauen</a>
+    <a href="#sprachen">Sprachen</a>
+    <a href="#impact">Impact</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h2>Starte deine Tätigkeit einfach & rechtskonform</h2>
-    <p>Jobimpactr hilft dir beim Einstieg in selbstständige Alltagsarbeiten – klar, fair und verständlich.</p>
-    <button>Jetzt registrieren</button>
-  </section>
+<section class="hero">
+  <h1>Dein Job. Dein Impact.</h1>
+  <p>Alltagsarbeit in Deutschland – verständlich, rechtskonform und mehrsprachig.</p>
+  <button class="btn">Jetzt starten</button>
+</section>
 
-  <main class="container">
-    <div class="box-grid">
-      <div class="box">
-        <h3>Was ist Jobimpactr?</h3>
-        <p>Eine Plattform für einfache, erlaubnisfreie Dienstleistungen im Alltag – z. B. Reinigung, Montage, Hilfe im Haushalt.</p>
-      </div>
-      <div class="box">
-        <h3>Für wen ist das?</h3>
-        <p>Für Migrant:innen, Frauen, Rentner:innen und alle mit praktischen Fähigkeiten ohne formalen Abschluss.</p>
-      </div>
-      <div class="box">
-        <h3>Wie funktioniert’s?</h3>
-        <p>Registrieren → Gewerbe & BG Hinweise erhalten → Aufträge erstellen oder annehmen.</p>
-      </div>
-      <div class="box">
-        <h3>Was ist erlaubt?</h3>
-        <p>Nur Tätigkeiten ohne Meisterpflicht. Alles wird WZ-konform geprüft & transparent dargestellt.</p>
-      </div>
-      <div class="box">
-        <h3>Sicherheit & Recht</h3>
-        <p>Infos zu Steuer, Unfallversicherung (BG) und rechtlichen Grenzen. Keine Vermittlung, sondern digitale Unterstützung.</p>
-      </div>
-      <div class="box">
-        <h3>Mehrsprachigkeit</h3>
-        <p>Aktiv: Deutsch, Englisch, Polnisch, Türkisch, Kurdisch. Weitere 11 Sprachen folgen.</p>
-      </div>
-      <div class="box">
-        <h3>Sozialer Impact</h3>
-        <p>50 % der Einnahmen aus dem Shop gehen an soziale Initiativen – dein Job hilft doppelt.</p>
-      </div>
-      <div class="box">
-        <h3>Kosten & Struktur</h3>
-        <p>Keine Grundgebühr. Faire Provision pro Job. Transparent und steuerlich nachvollziehbar.</p>
-      </div>
-    </div>
-  </main>
+<section class="section" id="was">
+  <h2>Was ist Jobimpactr?</h2>
+  <p>Jobimpactr ist eine Plattform für einfache, erlaubnisfreie Tätigkeiten – z. B. Reinigung, Montage, Haushaltshilfe. Jede:r kann starten – mit Anleitung, Sicherheit und Transparenz.</p>
+</section>
 
-  <footer>
-    © 2025 Jobimpactr. Plattform im Aufbau. Angaben ohne Gewähr.
-  </footer>
+<section class="section" id="wie">
+  <h2>Wie funktioniert’s?</h2>
+  <div class="grid">
+    <div class="card"><strong>1. Registrierung</strong><br>Mit E-Mail & PLZ.</div>
+    <div class="card"><strong>2. Dokumenten-Check</strong><br>Gewerbe, BG, ELSTER.</div>
+    <div class="card"><strong>3. Aufträge finden</strong><br>Per Karte oder Umkreis.</div>
+    <div class="card"><strong>4. Arbeiten & verdienen</strong><br>Mit Rechnung & Steuerhilfe.</div>
+  </div>
+</section>
+
+<section class="section" id="jobs">
+  <h2>Zulässige Jobs</h2>
+  <p>Nur Tätigkeiten ohne Meisterpflicht: Reinigung, Möbelaufbau, Hilfe im Haushalt, Schneiderei, Gartenarbeit, IT-Hilfe. Alles geprüft nach WZ-Codes.</p>
+</section>
+
+<section class="section" id="doku">
+  <h2>Dokumente</h2>
+  <div class="grid">
+    <div class="card"><strong>Gewerbe</strong><br>Online beantragen in <a href="https://serviceportal.hamburg.de">Hamburg.de</a></div>
+    <div class="card"><strong>BG-Meldung</strong><br>Pflicht für Selbstständige</div>
+    <div class="card"><strong>ELSTER</strong><br>Steuerkonto aktivieren</div>
+    <div class="card"><strong>Führungszeugnis</strong><br>Online oder im Bürgeramt</div>
+  </div>
+</section>
+
+<section class="section" id="frauen">
+  <h2>Frauen im Fokus</h2>
+  <p>Alle Jobs sind für Frauen geeignet. Mit Filtern, Sicherheit, Aufklärung & Anleitung. Ziel: finanzielle Eigenständigkeit & Selbstvertrauen stärken.</p>
+</section>
+
+<section class="section" id="sprachen">
+  <h2>Mehrsprachigkeit</h2>
+  <p>Aktive Sprachen: Deutsch, Englisch, Polnisch, Türkisch, Kurdisch. Weitere 11 geplant. Kein Deutsch? Kein Problem – jeder Schritt wird erklärt.</p>
+</section>
+
+<section class="section" id="impact">
+  <h2>Impact & Vision</h2>
+  <p>50 % der Shop-Einnahmen fließen in soziale Projekte. Wir unterstützen Migrant:innen, Frauen & Menschen ohne Berufsabschluss – digital, transparent und menschlich.</p>
+</section>
+
+<footer>
+  © 2025 Jobimpactr. Plattform im Aufbau. Angaben ohne Gewähr.
+</footer>
 
 </body>
 </html>
