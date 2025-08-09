@@ -1,50 +1,76 @@
 <section id="berufe">
   <h2>Berufe & Anforderungen</h2>
-  <p>Welche Tätigkeiten darfst du ausüben? Hier findest du eine Auswahl typischer Alltagsjobs, die du über Jobimpactr rechtskonform anbieten kannst – mit klaren Hinweisen zu Anmeldung, Versicherung und Ausstattung.</p>
+  <p>Diese Plattform unterstützt dich dabei, erlaubnisfreie Tätigkeiten in Deutschland auszuüben – mit klaren Informationen zu Berufsfeldern, rechtlichen Voraussetzungen und benötigter Ausstattung.</p>
 
+  <!-- 🔍 Arama Kutusu -->
+  <input type="text" placeholder="Beruf oder WZ-Code suchen..." style="padding: 0.5rem; width: 100%; margin: 1rem 0;">
+
+  <!-- 🎯 Filtre -->
   <div>
-    <h3>🧹 Reinigung</h3>
-    <ul>
-      <li><strong>WZ-Code:</strong> 81.21</li>
-      <li><strong>Erlaubt ohne Meisterpflicht</strong></li>
-      <li><strong>Erforderlich:</strong> Gewerbeanmeldung, BGW-Mitgliedschaft, Steuer-ID (ELSTER)</li>
-      <li><strong>BG:</strong> Berufsgenossenschaft für Gesundheitsdienst und Wohlfahrtspflege (BGW)</li>
-      <li><strong>Ausrüstung:</strong> Handschuhe, Reinigungsmittel, ggf. Sauger – keine gefährlichen Chemikalien!</li>
-    </ul>
-    <button onclick="window.location.href='https://www.bgw-online.de'" style="margin-top: 0.5rem;">BGW besuchen</button>
+    <label for="bgFilter"><strong>Filtern nach Berufsgenossenschaft:</strong></label>
+    <select id="bgFilter" style="padding: 0.3rem; margin-left: 0.5rem;">
+      <option>Alle</option>
+      <option>BG BAU</option>
+      <option>BGW</option>
+      <option>BG ETEM</option>
+    </select>
   </div>
 
+  <hr>
+
+  <!-- 🧹 Reinigung -->
   <div>
-    <h3>🪑 Möbelmontage</h3>
+    <h3>🧹 Reinigung (WZ 81.21)</h3>
     <ul>
-      <li><strong>WZ-Code:</strong> 95.24</li>
-      <li><strong>Erlaubt ohne Meisterpflicht</strong></li>
-      <li><strong>Erforderlich:</strong> Gewerbeanmeldung, BG BAU, Steuer-ID (ELSTER)</li>
-      <li><strong>BG:</strong> Berufsgenossenschaft der Bauwirtschaft (BG BAU)</li>
-      <li><strong>Ausrüstung:</strong> Akkuschrauber, Inbusschlüssel, Transporttasche</li>
+      <li><strong>Erlaubt:</strong> Innenreinigung, Fenster, Teppichpflege bis 3 m Höhe</li>
+      <li><strong>Nicht erlaubt:</strong> Desinfektion nach Infektionsschutzgesetz (§ 18 IfSG)</li>
+      <li><strong>BG:</strong> BGW – <a href="https://www.bgw-online.de" target="_blank">Zur Website</a></li>
+      <li><strong>Erforderlich:</strong> Gewerbeanmeldung, Steuer-ID (ELSTER), Anmeldung bei BGW</li>
+      <li><strong>Ausrüstung:</strong> Teleskopstange, Mikrofasertücher, biologisch abbaubare Reinigungsmittel</li>
+      <li><strong>KLD-B 2010 Referenz:</strong> Reinigungstätigkeiten ohne Meisterpflicht erlaubt</li>
     </ul>
-    <button onclick="window.location.href='https://www.bgbau.de'" style="margin-top: 0.5rem;">BG BAU Info</button>
+    <button onclick="window.location.href='https://jobimpactr.shop/cleaning'" style="margin-bottom: 1rem;">Passende Ausrüstung im Shop</button>
   </div>
 
+  <!-- 🪑 Möbelmontage -->
   <div>
-    <h3>🔧 Kleine Reparaturen</h3>
+    <h3>🪑 Möbelmontage (WZ 95.24)</h3>
     <ul>
-      <li><strong>WZ-Code:</strong> 95.29</li>
-      <li><strong>Nur einfache Reparaturen ohne Elektro- oder Wasseranschluss</strong></li>
-      <li><strong>Erforderlich:</strong> Gewerbeanmeldung, ggf. BG ETEM, Steuer-ID</li>
-      <li><strong>Ausrüstung:</strong> Werkzeugkasten, Handschuhe</li>
+      <li><strong>Erlaubt:</strong> Aufbau von Möbeln inkl. IKEA-Montage</li>
+      <li><strong>Nicht erlaubt:</strong> Elektrische Anschlüsse oder Wanddurchbrüche</li>
+      <li><strong>BG:</strong> BG BAU – <a href="https://www.bgbau.de" target="_blank">Zur Website</a></li>
+      <li><strong>Erforderlich:</strong> Gewerbeanmeldung, BG-Mitgliedschaft, Steuer-ID (ELSTER)</li>
+      <li><strong>Ausrüstung:</strong> Akkuschrauber, Wasserwaage, Werkzeugtasche</li>
+      <li><strong>KLD-B 2010:</strong> Als „Montagetätigkeit ohne Bauanschluss“ zulässig</li>
     </ul>
-    <button onclick="window.location.href='https://www.bgetem.de'" style="margin-top: 0.5rem;">BG ETEM</button>
+    <button onclick="window.location.href='https://jobimpactr.shop/montage'" style="margin-bottom: 1rem;">Montage-Set im Shop</button>
   </div>
 
+  <!-- 🧵 Kleidung & Textil -->
   <div>
-    <h3>🪡 Kleidung & Textil</h3>
+    <h3>🧵 Kleidung & Textil (WZ 95.29)</h3>
     <ul>
-      <li><strong>WZ-Code:</strong> 95.29</li>
-      <li><strong>Erlaubt:</strong> Änderungen, Knopf annähen, Reißverschluss tauschen</li>
-      <li><strong>Verboten:</strong> Massenproduktion oder Markenfälschung</li>
-      <li><strong>BG:</strong> BGW oder Textil-Berufsgenossenschaft</li>
+      <li><strong>Erlaubt:</strong> Änderungen, Knopf, Reißverschluss, Saum</li>
+      <li><strong>Nicht erlaubt:</strong> Lizenzierte Logos, Großserienfertigung</li>
+      <li><strong>BG:</strong> BGW – <a href="https://www.bgw-online.de" target="_blank">Zur Website</a></li>
+      <li><strong>Erforderlich:</strong> Gewerbeanmeldung, Steuer-ID</li>
+      <li><strong>Ausrüstung:</strong> Haushaltsnähmaschine, Maßband, Schere</li>
+      <li><strong>KLD-B 2010:</strong> Textilbearbeitung im Haushalt erlaubt</li>
     </ul>
-    <button onclick="window.location.href='https://www.bgw-online.de'" style="margin-top: 0.5rem;">Textil-BG besuchen</button>
+    <button onclick="window.location.href='https://jobimpactr.shop/textil'" style="margin-bottom: 1rem;">Textil-Zubehör ansehen</button>
+  </div>
+
+  <!-- 🔧 Kleine Reparaturen -->
+  <div>
+    <h3>🔧 Kleine Reparaturen (WZ 95.29)</h3>
+    <ul>
+      <li><strong>Erlaubt:</strong> Möbel reparieren, Scharniere, einfache Montage</li>
+      <li><strong>Nicht erlaubt:</strong> Elektro- oder Sanitärinstallation</li>
+      <li><strong>BG:</strong> BG ETEM – <a href="https://www.bgetem.de" target="_blank">Zur Website</a></li>
+      <li><strong>Erforderlich:</strong> Gewerbeanmeldung, Steuer-ID, ggf. BG-Anmeldung</li>
+      <li><strong>Ausrüstung:</strong> Werkzeugkoffer, Handschuhe, Schutzbrille</li>
+      <li><strong>KLD-B 2010:</strong> Nur handwerkliche Nebentätigkeiten erlaubt</li>
+    </ul>
+    <button onclick="window.location.href='https://jobimpactr.shop/reparatur'" style="margin-bottom: 1rem;">Werkzeug-Sets im Shop</button>
   </div>
 </section>
