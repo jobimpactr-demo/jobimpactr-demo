@@ -305,32 +305,105 @@
             font-weight: 600;
         }
 
-        /* Recht Section */
-        .legal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Updated Recht Section */
+        .recht-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .legal-card {
+        .recht-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.125rem;
+            color: var(--hsv-gray);
+        }
+
+        .recht-step {
             background: var(--hsv-white);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--hsv-blue);
         }
 
-        .legal-icon {
-            width: 60px;
-            height: 60px;
+        .recht-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--hsv-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .recht-number {
+            width: 35px;
+            height: 35px;
             background: var(--hsv-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
             color: var(--hsv-white);
-            font-size: 1.5rem;
+            font-weight: bold;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .recht-step p {
+            margin-bottom: 1rem;
+            color: var(--hsv-gray);
+            line-height: 1.7;
+        }
+
+        .recht-step ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .recht-step li {
+            margin-bottom: 0.5rem;
+            color: var(--hsv-gray);
+        }
+
+        .recht-btn {
+            background: var(--hsv-blue);
+            color: var(--hsv-white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .recht-btn:hover {
+            background: #003d7a;
+            transform: translateY(-2px);
+        }
+
+        .verboten-section {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .verboten-section h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        .verboten-section p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .verboten-section em {
+            color: #dc2626;
+            font-style: italic;
         }
 
         /* Onboarding */
@@ -505,7 +578,7 @@
                 font-size: 2rem;
             }
 
-            .process-steps, .legal-grid, .onboarding-steps, .impact-grid {
+            .process-steps, .onboarding-steps, .impact-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -517,8 +590,12 @@
                 width: 100%;
             }
 
-            .process-step {
+            .process-step, .recht-step {
                 padding: 1.5rem;
+            }
+
+            .recht-content {
+                padding: 0 1rem;
             }
         }
 
@@ -564,7 +641,7 @@
                 <li><a href="#start">Start</a></li>
                 <li><a href="#ablauf">Wie es funktioniert</a></li>
                 <li><a href="#berufe-anforderungen">Berufe & Anforderungen</a></li>
-                <li><a href="#recht">Recht</a></li>
+                <li><a href="#recht">Sicherheit & Recht</a></li>
                 <li><a href="#onboarding">Onboarding</a></li>
                 <li><a href="#sozialer-impact">Sozialer Impact</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
@@ -662,25 +739,54 @@
         </div>
     </section>
 
-    <!-- Recht -->
+    <!-- Updated Sicherheit & Recht Section -->
     <section class="section" id="recht">
         <div class="container">
-            <h2>Recht</h2>
-            <div class="legal-grid">
-                <div class="legal-card">
-                    <div class="legal-icon">🛡️</div>
-                    <h3>Berufsgenossenschaft (BG)</h3>
-                    <p>Vollständige BG-Absicherung für alle Tätigkeiten. Wir stellen sicher, dass du bei der Arbeit optimal geschützt bist.</p>
+            <h2>Sicherheit & Recht</h2>
+            <div class="recht-content">
+                <p class="recht-intro">Um deine Tätigkeit in Deutschland rechtskonform auszuüben, musst du einige Schritte beachten. Jobimpactr begleitet dich dabei mit klaren Erklärungen und digitalen Hilfen.</p>
+
+                <div class="recht-step">
+                    <h3><span class="recht-number">1</span>Gewerbeanmeldung</h3>
+                    <p>Die Anmeldung beim Gewerbeamt ist die Voraussetzung für selbstständige Tätigkeiten. Du erhältst eine Gewerbeanmeldebestätigung, die du für BG und Steuer brauchst.</p>
+                    <ul>
+                        <li>Online oder vor Ort beim Bezirksamt</li>
+                        <li>Erforderlich: Personalausweis, Adresse, Tätigkeit</li>
+                    </ul>
+                    <button class="recht-btn" onclick="window.open('https://www.hamburg.de/behoerdenfinder/info/11255574/', '_blank')">Gewerbe online anmelden</button>
                 </div>
-                <div class="legal-card">
-                    <div class="legal-icon">💰</div>
-                    <h3>Steuer</h3>
-                    <p>Professionelle steuerliche Beratung und Unterstützung. Wir helfen dir bei allen steuerlichen Fragen und der korrekten Abwicklung.</p>
+
+                <div class="recht-step">
+                    <h3><span class="recht-number">2</span>Unfallversicherung (BG)</h3>
+                    <p>Als Selbstständige bist du verpflichtet, dich bei der zuständigen Berufsgenossenschaft zu melden. Sie schützt dich im Falle eines Arbeitsunfalls.</p>
+                    <ul>
+                        <li>BG BAU – z. B. für Montagearbeiten</li>
+                        <li>BGW – z. B. für Reinigungsdienste, Textil</li>
+                        <li>BG ETEM – z. B. bei Elektroarbeiten oder Reparaturen</li>
+                    </ul>
+                    <button class="recht-btn" onclick="window.open('https://www.dguv.de/de/bg-uk-lv/bg-finden/index.jsp', '_blank')">Zuständige BG finden</button>
                 </div>
-                <div class="legal-card">
-                    <div class="legal-icon">📊</div>
-                    <h3>ELSTER</h3>
-                    <p>ELSTER-konforme elektronische Steuererklärung. Wir unterstützen dich bei der digitalen Steuerabwicklung.</p>
+
+                <div class="recht-step">
+                    <h3><span class="recht-number">3</span>Steuerliche Anmeldung (ELSTER)</h3>
+                    <p>Nach der Gewerbeanmeldung erhältst du einen Fragebogen zur steuerlichen Erfassung. Über ELSTER gibst du deine Steuerdaten digital ein.</p>
+                    <ul>
+                        <li>Steuer-ID ist Pflicht</li>
+                        <li>ELSTER-Zugang dauert ca. 7–14 Tage</li>
+                        <li>Jobimpactr hilft dir Schritt für Schritt</li>
+                    </ul>
+                    <button class="recht-btn" onclick="window.open('https://www.elster.de/eportal/start', '_blank')">ELSTER starten</button>
+                </div>
+
+                <div class="verboten-section">
+                    <h3>4. Was ist verboten?</h3>
+                    <p>Einige Tätigkeiten darfst du ohne spezielle Ausbildung nicht anbieten:</p>
+                    <ul>
+                        <li>Elektroinstallation oder Arbeiten an Stromanschlüssen</li>
+                        <li>Sanitär- oder Gasinstallationen</li>
+                        <li>Dacharbeiten, Mauerarbeiten, Estrichverlegung</li>
+                    </ul>
+                    <p><em>Solche Berufe erfordern einen Meistertitel und Handwerkskammer-Eintrag (HWK).</em></p>
                 </div>
             </div>
         </div>
