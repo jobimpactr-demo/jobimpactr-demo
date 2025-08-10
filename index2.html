@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobimpactr – Dein Job. Dein Impact.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: #FFFFFF;
+      box-shadow: 0 2px 20px rgba(0, 82, 159, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #00529F;
+      text-decoration: none;
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: #00529F;
+    }
+
+    .language-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    .language-btn {
+      background: none;
+      border: 1px solid #00529F;
+      color: #00529F;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .language-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      min-width: 200px;
+      display: none;
+      z-index: 1001;
+    }
+
+    .language-dropdown.show {
+      display: block;
+    }
+
+    .language-item {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.85rem;
+    }
+
+    .language-item:last-child {
+      border-bottom: none;
+    }
+
+    .language-item.active {
+      color: #00529F;
+      font-weight: 600;
+    }
+
+    .language-item.inactive {
+      color: #999;
+      cursor: not-allowed;
+    }
+
+    .language-item.inactive:hover {
+      background-color: #f8f8f8;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #00529F;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #00529F 0%, #0077CC 100%);
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: #FFFFFF;
+      color: #00529F;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background-color: #FFFFFF;
+      color: #00529F;
+      transform: translateY(-2px);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: #00529F;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Wie es funktioniert Section */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .step {
+      background: #FFFFFF;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 82, 159, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+      border: 1px solid #f0f0f0;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+    }
+
+    .step-number {
+      background: #00529F;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+
+    .step h3 {
+      font-size: 1.3rem;
+      color: #00529F;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .step p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Berufe & Anforderungen Section */
+    .search-section {
+      background: #f8fafc;
+    }
+
+    .search-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #00529F;
+    }
+
+    .bg-filter {
+      padding: 1rem 1.5rem;
+      background: #00529F;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .bg-filter:hover {
+      background: #003d7a;
+    }
+
+    .kldb-info {
+      background: #f0f8ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #00529F;
+      margin-top: 1.5rem;
+    }
+
+    .kldb-info a {
+      color: #00529F;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .kldb-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Recht Section */
+    .recht-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .recht-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid #f0f0f0;
+    }
+
+    .recht-card h3 {
+      color: #00529F;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .recht-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Onboarding Section */
+    .onboarding-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .onboarding-step {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      border: 1px solid #f0f0f0;
+    }
+
+    .onboarding-icon {
+      width: 60px;
+      height: 60px;
+      background: #00529F;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .onboarding-step h3 {
+      color: #00529F;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .onboarding-step p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Sozialer Impact Section */
+    .impact-section {
+      background: #f8fafc;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .impact-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      border: 1px solid #f0f0f0;
+    }
+
+    .impact-icon {
+      width: 80px;
+      height: 80px;
+      background: #00529F;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .impact-card h3 {
+      color: #00529F;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .impact-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .sdg-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .sdg-icon {
+      width: 50px;
+      height: 50px;
+      background: #00529F;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: #00529F;
+      color: white;
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .footer-section p, .footer-section a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding: 4rem 1rem 3rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      .section {
+        padding: 3rem 1rem;
+      }
+
+      .search-bar {
+        flex-direction: column;
+      }
+
+      .search-input {
+        min-width: auto;
+      }
+
+      .steps, .recht-grid, .onboarding-steps, .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Focus styles for accessibility */
+    button:focus, a:focus, input:focus {
+      outline: 2px solid #00529F;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">Jobimpactr</a>
+      
+      <nav class="nav-desktop">
+        <ul class="nav-menu">
+          <li><a href="#hero">Start</a></li>
+          <li><a href="#wie-funktioniert">Wie es funktioniert</a></li>
+          <li><a href="#berufe">Berufe & Anforderungen</a></li>
+          <li><a href="#recht">Recht</a></li>
+          <li><a href="#onboarding">Onboarding</a></li>
+          <li><a href="#impact">Sozialer Impact</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        
+        <div class="language-selector">
+          <button class="language-btn" onclick="toggleLanguageDropdown()">
+            🇩🇪 Deutsch
+          </button>
+          <div class="language-dropdown" id="languageDropdown">
+            <div class="language-item active">🇩🇪 Deutsch</div>
+            <div class="language-item">🇬🇧 English</div>
+            <div class="language-item">🇵🇱 Polski</div>
+            <div class="language-item">🇹🇷 Türkçe</div>
+            <div class="language-item">🇹🇷 Kurmancî</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇫🇷 Français</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇪🇸 Español</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇮🇹 Italiano</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇷🇺 Русский</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇦🇷 العربية</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇨🇳 中文</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇯🇵 日本語</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇰🇷 한국어</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇻🇳 Tiếng Việt</div>
+            <div class="language-item inactive" title="Bald verfügbar">🇹🇭 ไทย</div>
+          </div>
+        </div>
+      </nav>
+      
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Dein Job. Dein Impact.</h1>
+      <p class="hero-subtitle">Rechtskonform · Steuerlich abgesichert · BG-konform</p>
+      
+      <div class="hero-badges">
+        <span class="badge">✓ Rechtskonform</span>
+        <span class="badge">✓ Steuerlich abgesichert</span>
+        <span class="badge">✓ BG-konform</span>
+      </div>
+      
+      <div class="hero-buttons">
+        <a href="#onboarding" class="btn-primary">Jetzt starten</a>
+        <a href="#wie-funktioniert" class="btn-secondary">Mehr erfahren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wie es funktioniert Section -->
+  <section id="wie-funktioniert" class="section">
+    <h2 class="section-title">Wie es funktioniert</h2>
+    <p class="section-subtitle">In drei einfachen Schritten zu deinem neuen Job</p>
+    
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Job finden</h3>
+        <p>Durchsuche unsere Datenbank nach passenden Aufträgen in deiner Nähe. Filtere nach Beruf, Standort und Anforderungen.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Auftrag sichern</h3>
+        <p>Bewirb dich auf interessante Aufträge und sichere dir den Job. Wir unterstützen dich bei der Kommunikation mit Kunden.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Fair bezahlt werden</h3>
+        <p>Erfülle deine Aufgaben professionell und erhalte eine faire, pünktliche Bezahlung. Alle Zahlungen sind transparent und sicher.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Berufe & Anforderungen Section -->
+  <section id="berufe" class="section search-section">
+    <h2 class="section-title">Berufe & Anforderungen</h2>
+    <p class="section-subtitle">Finde deinen passenden Job basierend auf der KLD-B 2010 Klassifikation</p>
+    
+    <div class="search-container">
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Beruf oder Tätigkeit suchen..." />
+        <button class="bg-filter">BG-Filter anwenden</button>
+      </div>
+      
+      <div class="kldb-info">
+        <p><strong>KLD-B 2010 Referenz:</strong> Alle Berufe sind nach der Klassifikation der Berufe 2010 (KLD-B 2010) der Bundesagentur für Arbeit kategorisiert. <a href="https://jobimpactr.shop" target="_blank">Mehr Details auf Jobimpactr.shop</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recht Section -->
+  <section id="recht" class="section">
+    <h2 class="section-title">Recht</h2>
+    <p class="section-subtitle">Vollständige rechtliche Absicherung für deine selbstständige Tätigkeit</p>
+    
+    <div class="recht-grid">
+      <div class="recht-card">
+        <h3>Berufsgenossenschaft (BG)</h3>
+        <p>Alle Aufträge sind über die zuständige Berufsgenossenschaft versichert. Du bist automatisch unfallversichert und genießt umfassenden Schutz bei der Arbeit.</p>
+      </div>
+      
+      <div class="recht-card">
+        <h3>Steuer & ELSTER</h3>
+        <p>Wir unterstützen dich bei der korrekten Steuererklärung. Alle Einnahmen werden automatisch für ELSTER vorbereitet und dokumentiert.</p>
+      </div>
+      
+      <div class="recht-card">
+        <h3>Rechtliche Compliance</h3>
+        <p>Alle Verträge und Arbeitsverhältnisse entsprechen den deutschen Arbeits- und Sozialgesetzen. Du arbeitest vollständig rechtskonform.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onboarding Section -->
+  <section id="onboarding" class="section">
+    <h2 class="section-title">Onboarding</h2>
+    <p class="section-subtitle">Starte in wenigen Schritten durch</p>
+    
+    <div class="onboarding-steps">
+      <div class="onboarding-step">
+        <div class="onboarding-icon">📝</div>
+        <h3>Profil erstellen</h3>
+        <p>Registriere dich mit deinen persönlichen Daten und erstelle dein Profil mit deinen Fähigkeiten und Erfahrungen.</p>
+      </div>
+      
+      <div class="onboarding-step">
+        <div class="onboarding-icon">✅</div>
+        <h3>Verifizierung</h3>
+        <p>Wir überprüfen deine Identität und Qualifikationen für maximale Sicherheit und Vertrauen.</p>
+      </div>
+      
+      <div class="onboarding-step">
+        <div class="onboarding-icon">📋</div>
+        <h3>Dokumente hochladen</h3>
+        <p>Lade die erforderlichen Dokumente hoch (Ausweis, Qualifikationsnachweise, etc.).</p>
+      </div>
+      
+      <div class="onboarding-step">
+        <div class="onboarding-icon">🎯</div>
+        <h3>Erste Aufträge</h3>
+        <p>Nach der Freischaltung kannst du sofort mit der Auftragssuche beginnen und deine ersten Jobs annehmen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sozialer Impact Section -->
+  <section id="impact" class="section impact-section">
+    <h2 class="section-title">Sozialer Impact</h2>
+    <p class="section-subtitle">Wir fördern Inklusion und nachhaltige Entwicklung</p>
+    
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">👩</div>
+        <h3>Frauenförderung</h3>
+        <p>Wir unterstützen Frauen dabei, ihre beruflichen Ziele zu erreichen und finanzielle Unabhängigkeit zu erlangen.</p>
+      </div>
+      
+      <div class="impact-card">
+        <div class="impact-icon">♿</div>
+        <h3>Inklusion von Menschen mit Behinderung</h3>
+        <p>Wir schaffen Arbeitsmöglichkeiten für Menschen mit Behinderung und fördern ihre Teilhabe am Arbeitsmarkt.</p>
+      </div>
+      
+      <div class="impact-card">
+        <div class="impact-icon">🌍</div>
+        <h3>Integration von Migranten</h3>
+        <p>Wir helfen Migranten dabei, in Deutschland Fuß zu fassen und ihre Fähigkeiten gewinnbringend einzusetzen.</p>
+      </div>
+    </div>
+    
+    <div class="sdg-icons">
+      <div class="sdg-icon">SDG 1</div>
+      <div class="sdg-icon">SDG 5</div>
+      <div class="sdg-icon">SDG 8</div>
+      <div class="sdg-icon">SDG 10</div>
+      <div class="sdg-icon">SDG 17</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="kontakt">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Kontakt</h3>
+        <p>📧 info@jobimpactr.de</p>
+        <p>📞 +49 (0) 40 123 456 789</p>
+        <p>📍 Hamburg, Deutschland</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Rechtliches</h3>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+        <a href="#">Cookie-Einstellungen</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Folge uns</h3>
+        <div class="social-icons">
+          <a href="#" class="social-icon">📘</a>
+          <a href="#" class="social-icon">📷</a>
+          <a href="#" class="social-icon">🐦</a>
+          <a href="#" class="social-icon">💼</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Sprache</h3>
+        <a href="#">Deutsch</a>
+        <a href="#">English</a>
+        <a href="#">Polski</a>
+        <a href="#">Türkçe</a>
+        <a href="#">Kurmancî</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2025 Jobimpactr – Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Language dropdown functionality
+    function toggleLanguageDropdown() {
+      const dropdown = document.getElementById('languageDropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    // Close dropdown when clicking outside
+    window.onclick = function(event) {
+      if (!event.target.matches('.language-btn')) {
+        const dropdowns = document.getElementsByClassName('language-dropdown');
+        for (let dropdown of dropdowns) {
+          if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+    // Mobile menu functionality (placeholder)
+    function toggleMobileMenu() {
+      // Mobile menu implementation would go here
+      alert('Mobile Menu - Coming Soon');
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll effect to header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.boxShadow = '0 2px 20px rgba(0, 82, 159, 0.15)';
+      } else {
+        header.style.boxShadow = '0 2px 20px rgba(0, 82, 159, 0.1)';
+      }
+    });
+  </script>
+</body>
+</html>
