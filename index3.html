@@ -1,223 +1,835 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jobimpactr – Dein Job. Dein Impact.</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-/* === RESET === */
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:"Inter",sans-serif;background:#fff;color:#000;line-height:1.6;overflow-x:hidden;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobimpactr - Dein Job. Dein Impact.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* === HEADER === */
-header{background:#fff;box-shadow:0 2px 20px rgba(0,82,159,0.1);position:sticky;top:0;z-index:1000;padding:1rem 2rem;transition:box-shadow .3s;}
-.header-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;}
-.logo{font-size:1.5rem;font-weight:800;color:#00529F;text-decoration:none;}
-.nav-desktop{display:flex;align-items:center;gap:2rem;}
-.nav-menu{display:flex;gap:2rem;list-style:none;}
-.nav-menu a{text-decoration:none;color:#000;font-weight:500;font-size:.9rem;transition:color .3s;}
-.nav-menu a:hover{color:#00529F;}
-.language-selector{position:relative;}
-.language-btn{background:none;border:1px solid #00529F;color:#00529F;padding:0.5rem 1rem;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:500;}
-.language-dropdown{position:absolute;top:100%;right:0;background:#fff;border:1px solid #e0e0e0;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.15);min-width:200px;display:none;z-index:1001;}
-.language-dropdown.show{display:block;}
-.language-item{padding:.75rem 1rem;cursor:pointer;border-bottom:1px solid #f0f0f0;font-size:.85rem;}
-.language-item:last-child{border-bottom:none;}
-.language-item.active{color:#00529F;font-weight:600;}
-.language-item.inactive{color:#999;cursor:not-allowed;}
-.mobile-menu-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#00529F;}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #FFFFFF;
+        }
 
-/* === HERO === */
-.hero{
-  background: linear-gradient(-45deg, #00529F, #0077CC, #00529F, #0077CC);
-  background-size: 400% 400%;
-  animation: gradientBG 12s ease infinite;
-  color:white;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;
-}
-@keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.hero-content{position:relative;z-index:2;max-width:800px;margin:auto;opacity:0;transform:translateY(30px);animation:fadeUp 1s forwards 0.5s;}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-.hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;margin-bottom:1.5rem;line-height:1.2;}
-.hero-subtitle{font-size:1.2rem;margin-bottom:2rem;opacity:.9;}
-.hero-badges{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;}
-.badge{background:rgba(255,255,255,0.2);padding:0.5rem 1rem;border-radius:20px;font-size:.9rem;font-weight:500;backdrop-filter:blur(10px);}
-.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.btn-primary,.btn-secondary{padding:1rem 2rem;border-radius:12px;font-weight:600;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;}
-.btn-primary{background:#fff;color:#00529F;}
-.btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 8px 25px rgba(255,255,255,0.3);}
-.btn-secondary{background:transparent;color:#fff;border:2px solid #fff;}
-.btn-secondary:hover{background:#fff;color:#00529F;transform:translateY(-3px) scale(1.03);}
+        /* HSV Hamburg Color Palette */
+        :root {
+            --hsv-blue: #00529F;
+            --hsv-white: #FFFFFF;
+            --hsv-black: #000000;
+            --hsv-gray: #6B7280;
+            --hsv-light-gray: #F3F4F6;
+        }
 
-/* === SECTIONS === */
-.section{padding:5rem 2rem;max-width:1200px;margin:auto;opacity:0;transform:translateY(40px);transition:all 0.8s ease;}
-.section.visible{opacity:1;transform:translateY(0);}
-.section-title{text-align:center;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#00529F;margin-bottom:1rem;}
-.section-subtitle{text-align:center;font-size:1.2rem;color:#666;margin-bottom:4rem;max-width:600px;margin-inline:auto;}
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-/* Steps */
-.steps,.recht-grid,.onboarding-steps,.impact-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;
-}
-.step,.recht-card,.onboarding-step,.impact-card{
-  background:#fff;padding:2.5rem;border-radius:20px;box-shadow:0 10px 40px rgba(0,82,159,0.08);
-  text-align:center;transition:transform 0.3s,box-shadow 0.3s;border:1px solid #f0f0f0;
-}
-.step:hover,.recht-card:hover,.onboarding-step:hover,.impact-card:hover{
-  transform:translateY(-5px) scale(1.02);
-  box-shadow:0 15px 40px rgba(0,82,159,0.15);
-}
-.step-number,.onboarding-icon,.impact-icon{
-  background:#00529F;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  margin:0 auto 1.5rem;font-weight:700;
-}
-.step-number{width:60px;height:60px;font-size:1.5rem;}
-.onboarding-icon{width:60px;height:60px;font-size:1.5rem;}
-.impact-icon{width:80px;height:80px;font-size:2rem;}
+        /* Header & Navigation */
+        .header {
+            background: var(--hsv-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
 
-/* Search Section */
-.search-section{background:#f8fafc;}
-.search-container{background:#fff;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);margin-bottom:2rem;}
-.search-bar{display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
-.search-input{flex:1;min-width:250px;padding:1rem;border:2px solid #e0e0e0;border-radius:12px;font-size:1rem;transition:border-color .3s;}
-.search-input:focus{outline:none;border-color:#00529F;}
-.bg-filter{padding:1rem 1.5rem;background:#00529F;color:white;border:none;border-radius:12px;cursor:pointer;font-weight:500;transition:background-color 0.3s,transform 0.2s;}
-.bg-filter:hover{background:#003d7a;transform:scale(1.03);}
-.bg-filter.loading{position:relative;pointer-events:none;}
-.bg-filter.loading::after{
-  content:"";width:18px;height:18px;border:3px solid #fff;border-top-color:transparent;
-  border-radius:50%;position:absolute;right:15px;top:50%;transform:translateY(-50%);animation:spin 0.8s linear infinite;
-}
-@keyframes spin{to{transform:translateY(-50%) rotate(360deg);}}
-.kldb-info{background:#f0f8ff;padding:1.5rem;border-radius:12px;border-left:4px solid #00529F;margin-top:1.5rem;}
-.kldb-info a{color:#00529F;text-decoration:none;font-weight:600;}
-.kldb-info a:hover{text-decoration:underline;}
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
 
-/* Footer */
-footer{background:#00529F;color:white;padding:3rem 2rem 2rem;}
-.footer-content{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-bottom:2rem;}
-.footer-section h3{font-size:1.2rem;margin-bottom:1rem;font-weight:600;}
-.footer-section p,.footer-section a{color:rgba(255,255,255,0.8);text-decoration:none;line-height:1.6;margin-bottom:0.5rem;display:block;}
-.footer-section a:hover{color:white;}
-.social-icons{display:flex;gap:1rem;margin-top:1rem;}
-.social-icon{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background-color 0.3s;}
-.social-icon:hover{background:rgba(255,255,255,0.2);}
-.footer-bottom{text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);font-size:0.9rem;}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--hsv-blue);
+            text-decoration: none;
+        }
 
-/* Responsive */
-@media(max-width:768px){
-  .nav-desktop{display:none;}
-  .mobile-menu-btn{display:block;}
-}
-</style>
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--hsv-black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--hsv-blue);
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .language-btn {
+            padding: 0.25rem 0.5rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .language-btn.active {
+            background: var(--hsv-blue);
+            color: var(--hsv-white);
+        }
+
+        .language-btn.passive {
+            color: var(--hsv-gray);
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .language-btn.passive:hover {
+            background: var(--hsv-light-gray);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--hsv-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--hsv-blue) 0%, #003d7a 100%);
+            color: var(--hsv-white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--hsv-white);
+            color: var(--hsv-blue);
+        }
+
+        .btn-primary:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--hsv-white);
+            border: 2px solid var(--hsv-white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--hsv-white);
+            color: var(--hsv-blue);
+        }
+
+        /* Main Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--hsv-light-gray);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--hsv-blue);
+        }
+
+        /* Wie funktioniert Jobimpactr - Updated 7-step process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: var(--hsv-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border-left: 4px solid var(--hsv-blue);
+        }
+
+        .process-step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--hsv-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: var(--hsv-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--hsv-white);
+            font-weight: bold;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .process-step p {
+            color: var(--hsv-gray);
+            line-height: 1.7;
+        }
+
+        /* Berufe & Anforderungen */
+        .search-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .search-btn {
+            padding: 1rem 2rem;
+            background: var(--hsv-blue);
+            color: var(--hsv-white);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-tag {
+            padding: 0.5rem 1rem;
+            background: var(--hsv-blue);
+            color: var(--hsv-white);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .kld-reference {
+            background: var(--hsv-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .kld-reference a {
+            color: var(--hsv-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Recht Section */
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .legal-card {
+            background: var(--hsv-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .legal-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--hsv-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--hsv-white);
+            font-size: 1.5rem;
+        }
+
+        /* Onboarding */
+        .onboarding-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .onboarding-step {
+            background: var(--hsv-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .onboarding-number {
+            width: 50px;
+            height: 50px;
+            background: var(--hsv-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--hsv-white);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        /* Sozialer Impact */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .impact-card {
+            background: var(--hsv-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .sdg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .sdg-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--hsv-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--hsv-white);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--hsv-black);
+            color: var(--hsv-white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--hsv-blue);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: var(--hsv-white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--hsv-blue);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--hsv-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--hsv-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--hsv-white);
+            color: var(--hsv-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--hsv-white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .language-selector {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .process-steps, .legal-grid, .onboarding-steps, .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .search-input, .search-btn {
+                width: 100%;
+            }
+
+            .process-step {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Tooltip for passive languages */
+        .language-btn.passive {
+            position: relative;
+        }
+
+        .language-btn.passive::after {
+            content: "Bald verfügbar";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--hsv-black);
+            color: var(--hsv-white);
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .language-btn.passive:hover::after {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">Jobimpactr</a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#start">Start</a></li>
+                <li><a href="#ablauf">Wie es funktioniert</a></li>
+                <li><a href="#berufe-anforderungen">Berufe & Anforderungen</a></li>
+                <li><a href="#recht">Recht</a></li>
+                <li><a href="#onboarding">Onboarding</a></li>
+                <li><a href="#sozialer-impact">Sozialer Impact</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
 
-<!-- HEADER -->
-<header>
-  <div class="header-container">
-    <a href="#" class="logo">Jobimpactr</a>
-    <nav class="nav-desktop">
-      <ul class="nav-menu">
-        <li><a href="#hero">Start</a></li>
-        <li><a href="#wie-funktioniert">Wie es funktioniert</a></li>
-        <li><a href="#berufe">Berufe & Anforderungen</a></li>
-        <li><a href="#recht">Recht</a></li>
-        <li><a href="#onboarding">Onboarding</a></li>
-        <li><a href="#impact">Sozialer Impact</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-      <div class="language-selector">
-        <button class="language-btn" onclick="toggleLanguageDropdown()">🇩🇪 Deutsch</button>
-        <div class="language-dropdown" id="languageDropdown">
-          <div class="language-item active">🇩🇪 Deutsch</div>
-          <div class="language-item">🇬🇧 English</div>
-          <div class="language-item">🇵🇱 Polski</div>
-          <div class="language-item">🇹🇷 Türkçe</div>
-          <div class="language-item">🇹🇷 Kurmancî</div>
-          <div class="language-item inactive">🇫🇷 Français</div>
+            <div class="language-selector">
+                <button class="language-btn active">Deutsch</button>
+                <button class="language-btn active">English</button>
+                <button class="language-btn active">Polski</button>
+                <button class="language-btn active">Türkçe</button>
+                <button class="language-btn active">Kurmancî</button>
+                <button class="language-btn passive">Français</button>
+                <button class="language-btn passive">Español</button>
+                <button class="language-btn passive">Italiano</button>
+                <button class="language-btn passive">Português</button>
+                <button class="language-btn passive">Nederlands</button>
+                <button class="language-btn passive">Svenska</button>
+                <button class="language-btn passive">Dansk</button>
+                <button class="language-btn passive">Norsk</button>
+                <button class="language-btn passive">Suomi</button>
+                <button class="language-btn passive">Čeština</button>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="start">
+        <div class="container">
+            <h1>Dein Job. Dein Impact.</h1>
+            <p class="subtitle">Rechtskonform · Steuerlich abgesichert · BG-konform</p>
+            <div class="hero-buttons">
+                <a href="#onboarding" class="btn btn-primary">Jetzt starten</a>
+                <a href="#ablauf" class="btn btn-secondary">Mehr erfahren</a>
+            </div>
         </div>
-      </div>
-    </nav>
-    <button class="mobile-menu-btn" onclick="alert('Mobile Menü bald verfügbar')">☰</button>
-  </div>
-</header>
+    </section>
 
-<!-- HERO -->
-<section id="hero" class="hero">
-  <div class="hero-content">
-    <h1>Dein Job. Dein Impact.</h1>
-    <p class="hero-subtitle">Rechtskonform · Steuerlich abgesichert · BG-konform</p>
-    <div class="hero-badges">
-      <span class="badge">✓ Rechtskonform</span>
-      <span class="badge">✓ Steuerlich abgesichert</span>
-      <span class="badge">✓ BG-konform</span>
-    </div>
-    <div class="hero-buttons">
-      <a href="#onboarding" class="btn-primary">Jetzt starten</a>
-      <a href="#wie-funktioniert" class="btn-secondary">Mehr erfahren</a>
-    </div>
-  </div>
-</section>
+    <!-- Wie funktioniert Jobimpactr - Updated 7-step process -->
+    <section class="section" id="ablauf">
+        <div class="container">
+            <h2>Wie funktioniert Jobimpactr?</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3><span class="step-number">1</span>Anmeldung</h3>
+                    <p>Du registrierst dich mit Namen, E-Mail-Adresse und Telefonnummer. Die Anmeldung ist kostenlos und dauert nur wenige Minuten.</p>
+                </div>
+                <div class="process-step">
+                    <h3><span class="step-number">2</span>Überprüfung & Hinweise</h3>
+                    <p>Du erhältst individuelle Hinweise zur Anmeldung beim Gewerbeamt, zur Unfallversicherung (BG) und zur steuerlichen Registrierung (ELSTER). Alle Informationen stehen mehrsprachig zur Verfügung.</p>
+                </div>
+                <div class="process-step">
+                    <h3><span class="step-number">3</span>Tätigkeitsprüfung</h3>
+                    <p>Du wählst aus, welche Tätigkeiten du anbieten möchtest. Das System prüft automatisch, ob diese in Deutschland erlaubt sind (z. B. Möbelmontage, Reinigung, Haushaltshilfe).</p>
+                </div>
+                <div class="process-step">
+                    <h3><span class="step-number">4</span>Profil & Qualifikation</h3>
+                    <p>Du erstellst dein Profil mit Foto, Beschreibung und möglichen Nachweisen (z. B. Führungszeugnis, Gewerbeschein, BG-Bestätigung). Alle Dokumente können digital hochgeladen werden.</p>
+                </div>
+                <div class="process-step">
+                    <h3><span class="step-number">5</span>Aufträge finden</h3>
+                    <p>Du kannst passende Aufträge in deiner Nähe sehen und dich direkt bewerben. Kund:innen können dein Profil einsehen und dich buchen.</p>
+                </div>
+                <div class="process-step">
+                    <h3><span class="step-number">6</span>Kommunikation & Durchführung</h3>
+                    <p>Über das interne Nachrichtensystem kannst du mit Kund:innen kommunizieren, Details klären und Termine abstimmen. Danach führst du den Auftrag durch.</p>
+                </div>
+                <div class="process-step">
+                    <h3><span class="step-number">7</span>Bezahlung & Nachweis</h3>
+                    <p>Nach Abschluss des Auftrags bestätigt der Kunde digital die ordnungsgemäße Durchführung. Die Bezahlung erfolgt ausschließlich über das Jobimpactr Wallet. Der Betrag wird automatisch – inklusive Steuern – dem Konto des Dienstleisters gutgeschrieben. Eine digitale Einnahmenübersicht steht jederzeit zur Verfügung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Wie es funktioniert -->
-<section id="wie-funktioniert" class="section">
-  <h2 class="section-title">Wie es funktioniert</h2>
-  <p class="section-subtitle">In drei einfachen Schritten zu deinem neuen Job</p>
-  <div class="steps">
-    <div class="step"><div class="step-number">1</div><h3>Job finden</h3><p>Durchsuche passende Aufträge in deiner Nähe.</p></div>
-    <div class="step"><div class="step-number">2</div><h3>Auftrag sichern</h3><p>Bewirb dich und sichere dir den Job.</p></div>
-    <div class="step"><div class="step-number">3</div><h3>Fair bezahlt werden</h3><p>Erhalte pünktliche und transparente Bezahlung.</p></div>
-  </div>
-</section>
+    <!-- Berufe & Anforderungen -->
+    <section class="section" id="berufe-anforderungen">
+        <div class="container">
+            <h2>Berufe & Anforderungen</h2>
+            <div class="search-section">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Nach Berufen oder Anforderungen suchen...">
+                    <button class="search-btn">Suchen</button>
+                </div>
+                <div class="filter-tags">
+                    <span class="filter-tag">BG-konform</span>
+                    <span class="filter-tag">Steuerlich abgesichert</span>
+                    <span class="filter-tag">Rechtskonform</span>
+                </div>
+                <div class="kld-reference">
+                    <p><strong>Referenz:</strong> Alle Berufe basieren auf der <a href="#" target="_blank">KLD-B 2010</a> Klassifikation. Entdecke weitere Details in unserem <a href="https://jobimpactr.shop" target="_blank">Jobimpactr.shop</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Berufe -->
-<section id="berufe" class="section search-section">
-  <h2 class="section-title">Berufe & Anforderungen</h2>
-  <p class="section-subtitle">Finde deinen passenden Job basierend auf der KLD-B 2010 Klassifikation</p>
-  <div class="search-container">
-    <div class="search-bar">
-      <input type="text" class="search-input" placeholder="Beruf oder Tätigkeit suchen..." />
-      <button class="bg-filter" onclick="simulateLoading(this)">BG-Filter anwenden</button>
-    </div>
-    <div class="kldb-info">
-      <p><strong>KLD-B 2010 Referenz:</strong> Alle Berufe sind nach KLD-B 2010 kategorisiert. <a href="https://jobimpactr.shop" target="_blank">Mehr Details</a></p>
-    </div>
-  </div>
-</section>
+    <!-- Recht -->
+    <section class="section" id="recht">
+        <div class="container">
+            <h2>Recht</h2>
+            <div class="legal-grid">
+                <div class="legal-card">
+                    <div class="legal-icon">🛡️</div>
+                    <h3>Berufsgenossenschaft (BG)</h3>
+                    <p>Vollständige BG-Absicherung für alle Tätigkeiten. Wir stellen sicher, dass du bei der Arbeit optimal geschützt bist.</p>
+                </div>
+                <div class="legal-card">
+                    <div class="legal-icon">💰</div>
+                    <h3>Steuer</h3>
+                    <p>Professionelle steuerliche Beratung und Unterstützung. Wir helfen dir bei allen steuerlichen Fragen und der korrekten Abwicklung.</p>
+                </div>
+                <div class="legal-card">
+                    <div class="legal-icon">📊</div>
+                    <h3>ELSTER</h3>
+                    <p>ELSTER-konforme elektronische Steuererklärung. Wir unterstützen dich bei der digitalen Steuerabwicklung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Footer -->
-<footer id="kontakt">
-  <div class="footer-content">
-    <div class="footer-section"><h3>Kontakt</h3><p>📧 info@jobimpactr.de</p></div>
-    <div class="footer-section"><h3>Rechtliches</h3><a href="#">Impressum</a></div>
-  </div>
-  <div class="footer-bottom">© 2025 Jobimpactr – Alle Rechte vorbehalten.</div>
-</footer>
+    <!-- Onboarding -->
+    <section class="section" id="onboarding">
+        <div class="container">
+            <h2>Onboarding</h2>
+            <div class="onboarding-steps">
+                <div class="onboarding-step">
+                    <div class="onboarding-number">1</div>
+                    <h3>Profil erstellen</h3>
+                    <p>Erstelle dein persönliches Profil mit deinen Fähigkeiten und Erfahrungen. Das dauert nur wenige Minuten.</p>
+                </div>
+                <div class="onboarding-step">
+                    <div class="onboarding-number">2</div>
+                    <h3>Dokumente hochladen</h3>
+                    <p>Lade deine relevanten Dokumente hoch (Qualifikationen, Zertifikate, etc.). Wir prüfen alles für dich.</p>
+                </div>
+                <div class="onboarding-step">
+                    <div class="onboarding-number">3</div>
+                    <h3>Verifizierung</h3>
+                    <p>Wir verifizieren deine Angaben und Dokumente. Das dauert maximal 24 Stunden.</p>
+                </div>
+                <div class="onboarding-step">
+                    <div class="onboarding-number">4</div>
+                    <h3>Loslegen</h3>
+                    <p>Nach der Verifizierung kannst du sofort mit der Jobsuche beginnen und Aufträge annehmen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-// Language dropdown
-function toggleLanguageDropdown(){
-  document.getElementById('languageDropdown').classList.toggle('show');
-}
-window.onclick=function(e){
-  if(!e.target.matches('.language-btn')){
-    document.querySelectorAll('.language-dropdown').forEach(dd=>dd.classList.remove('show'));
-  }
-}
-// Scroll reveal
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add('visible');}
-  });
-},{threshold:0.1});
-document.querySelectorAll('.section').forEach(sec=>observer.observe(sec));
-// BG Filter loading
-function simulateLoading(btn){
-  btn.classList.add('loading');
-  setTimeout(()=>btn.classList.remove('loading'),1500);
-}
-</script>
+    <!-- Sozialer Impact -->
+    <section class="section" id="sozialer-impact">
+        <div class="container">
+            <h2>Sozialer Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3>Frauen fördern</h3>
+                    <p>Wir setzen uns aktiv für die Gleichstellung von Frauen in der Arbeitswelt ein und bieten spezielle Programme zur Förderung weiblicher Fachkräfte.</p>
+                </div>
+                <div class="impact-card">
+                    <h3>Menschen mit Behinderung</h3>
+                    <p>Inklusion ist uns wichtig. Wir schaffen Arbeitsmöglichkeiten für Menschen mit Behinderung und passen Arbeitsplätze individuell an.</p>
+                </div>
+                <div class="impact-card">
+                    <h3>Migranten unterstützen</h3>
+                    <p>Wir helfen Migranten dabei, ihre Qualifikationen anzuerkennen und in Deutschland Fuß zu fassen. Mehrsprachige Unterstützung inklusive.</p>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin-top: 3rem; color: var(--hsv-blue);">UN Sustainable Development Goals (SDGs)</h3>
+            <div class="sdg-grid">
+                <div class="sdg-icon">1</div>
+                <div class="sdg-icon">4</div>
+                <div class="sdg-icon">5</div>
+                <div class="sdg-icon">8</div>
+                <div class="sdg-icon">10</div>
+                <div class="sdg-icon">17</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="kontakt">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Jobimpactr GmbH</p>
+                    <p>Hamburg, Deutschland</p>
+                    <p>Email: info@jobimpactr.de</p>
+                    <p>Tel: +49 40 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Social Media</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">💼</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Rechtliches</h3>
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutz</a>
+                    <a href="#">AGB</a>
+                    <a href="#">Cookie-Richtlinie</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <a href="#">Hilfe-Center</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Kontakt</a>
+                    <a href="#">Feedback</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Jobimpactr – Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#FFFFFF';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
